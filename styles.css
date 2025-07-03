@@ -1,0 +1,117 @@
+/* Estilos para el cuerpo de la página (<body>) */
+body {
+    font-family: Arial, sans-serif; /* Define la fuente predeterminada para todo el texto */
+    color: #333;                    /* Color de texto predeterminado para todo el body */
+    margin: 0;                      /* Elimina los márgenes predeterminados del navegador */
+    padding: 20px;                  /* Añade un espacio interno alrededor del contenido del body */
+
+    /* -- NUEVOS ESTILOS PARA LA IMAGEN DE FONDO -- */
+    background-image: url('fondo.jpg'); /* Ruta de tu imagen de fondo. Asegúrate que 'fondo.jpg' esté en la misma carpeta que tu CSS y HTML */
+    background-size: cover;         /* La imagen de fondo cubrirá toda el área del body */
+    background-position: center center; /* Centra la imagen de fondo */
+    background-repeat: no-repeat;   /* Evita que la imagen se repita */
+    background-attachment: fixed;   /* La imagen de fondo se queda fija mientras el contenido se desplaza */
+    /* ------------------------------------------- */
+
+    display: flex;                  /* Usa Flexbox para centrar el contenido del contenedor */
+    justify-content: center;        /* Centra el contenedor horizontalmente */
+    align-items: center;            /* Centra el contenedor verticalmente en la pantalla */
+    min-height: 100vh;              /* Asegura que el body ocupe al menos el 100% de la altura de la ventana visible */
+}
+
+/*
+=====================================================
+    CONTENEDOR DE LA LISTA (RECUADRO TRANSLÚCIDO)
+=====================================================
+*/
+
+/* Estilos para el contenedor donde se encuentra tu lista */
+.lista-viaje {
+    /* -- FONDO BLANCO TRANSLÚCIDO -- */
+    background-color: rgba(255, 255, 255, 0.85); /* Fondo blanco (255,255,255) con 85% de opacidad (translucidez).
+                                                   Ajusta el valor 0.85 (entre 0 y 1) para más o menos transparencia. */
+    padding: 30px;                  /* Espacio interno dentro de la caja (relleno) */
+    border-radius: 12px;            /* Bordes más redondeados para el recuadro */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra suave y un poco más pronunciada para dar profundidad:
+                                               0px offset-x, 6px offset-y, 12px blur, color semitransparente */
+    max-width: 500px;               /* Ancho máximo de la caja, para que no se extienda demasiado en pantallas grandes */
+    width: 90%;                     /* La caja ocupará el 90% del ancho de la pantalla, útil en móviles */
+    /* Eliminamos 'margin: 20px auto;' de aquí porque el 'display: flex' en el body ya se encarga de centrarlo */
+}
+
+/* Estilos para el título principal de la lista */
+h1 {
+    text-align: center;             /* Centra el texto del título */
+    color: #2c3e50;                 /* Color oscuro para el título */
+    margin-bottom: 30px;            /* Espacio debajo del título */
+    font-size: 1.8em;               /* Un poco más pequeña que la predeterminada del navegador */
+}
+
+/*
+=====================================================
+    ESTILOS ESPECÍFICOS DE LA LISTA DE VIAJE
+=====================================================
+*/
+
+/* Estilos para la lista no ordenada (<ul>) con la clase 'lista-viaje' */
+.lista-viaje {
+    list-style: none; /* Elimina los marcadores de lista predeterminados */
+    padding: 0;       /* Elimina el padding predeterminado */
+    margin: 0;        /* Elimina el margen predeterminado */
+}
+
+/* Estilos para cada elemento individual de la lista (<li>) */
+.lista-viaje li {
+    display: flex;          /* Usa Flexbox para alinear la casilla y el texto */
+    align-items: center;    /* Centra verticalmente la casilla y el texto */
+    margin-bottom: 12px;    /* Un poco menos de espacio entre elementos */
+    padding: 8px;           /* Un poco menos de espacio interno */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Línea divisoria más suave y translúcida */
+    transition: background-color 0.3s ease; /* Transición suave para el hover */
+}
+
+/* Elimina la línea divisoria del último elemento de la lista */
+.lista-viaje li:last-child {
+    border-bottom: none;
+}
+
+/* Estilos para la casilla de verificación (<input type="checkbox">) */
+.lista-viaje input[type="checkbox"] {
+    margin-right: 12px;     /* Espacio a la derecha de la casilla */
+    min-width: 18px;        /* Un poco más pequeña */
+    min-height: 18px;       /* Un poco más pequeña */
+    cursor: pointer;
+    /* Puedes personalizar la apariencia de la casilla aquí si deseas un diseño más avanzado */
+}
+
+/* Estilos para la etiqueta (<label>) asociada a la casilla (el texto del elemento) */
+.lista-viaje label {
+    flex-grow: 1;           /* Permite que la etiqueta ocupe el espacio restante */
+    cursor: pointer;        /* Cursor de puntero */
+    font-size: 0.95em;      /* -- CAMBIO: Tamaño de la letra un poco más chica -- */
+    color: #444;            /* Color del texto por defecto: un gris oscuro (lo que falta) */
+}
+
+/*
+=====================================================
+    ESTILO CLAVE: DIFERENCIAR EMPACADO DE NO EMPACADO
+=====================================================
+*/
+
+/* Cuando una casilla de verificación está MARCADA, selecciona la LABEL que está justo después */
+.lista-viaje input[type="checkbox"]:checked + label {
+    color: #888;                    /* Color más gris para el texto empacado */
+    text-decoration: line-through;  /* Tacha el texto */
+    font-style: italic;             /* Pone el texto en cursiva */
+}
+
+/*
+=====================================================
+    EFECTOS ADICIONALES
+=====================================================
+*/
+
+/* Estilo que se aplica cuando el ratón pasa por encima de un elemento de la lista (<li>) */
+.lista-viaje li:hover {
+    background-color: rgba(0, 0, 0, 0.03); /* Fondo muy suave al pasar el ratón, también translúcido */
+}
